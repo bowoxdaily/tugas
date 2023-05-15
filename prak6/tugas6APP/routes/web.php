@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\mhsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,24 +16,6 @@ use App\Http\Controllers\mhsController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/show/{id}', function($id){
-    echo "Nilai GET parameter id =".$id;
-});
-
-Route::get('/edit/{nama}', function($nama){
-    echo "Nilai GET parameter nama =".$nama;
-})->where('nama','[A-Za-z]+');
-
-Route::get('/start', function(){
-    echo "<a href='".route('coba')."'>Start</a>";
-})->name('start');
-
-Route::get('/coba', function(){
-    echo "<a href='".route('start')."'>kembali</a>";
-})->name('coba');
-
-Route::get('/mhs',[mhsController::class,'index'])->name('mhs');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/mahasiswa', 'MahasiswaController@index')->name('mahasiswa');
